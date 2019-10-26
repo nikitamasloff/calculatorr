@@ -27,4 +27,12 @@ public abstract class Symbol {
     public int hashCode() {
         return getValue();
     }
+
+    public static abstract class Factory<T extends Symbol> {
+
+        public Factory() {
+        }
+
+        public abstract T fromChar(char ch);
+    }
 }
