@@ -9,13 +9,18 @@ import java.util.Collection;
 
 public interface Builder<T extends Operator, S extends Symbol, R extends Expression & Notated> {
 
+    int RESULT_APPENDED = 1;
+    int RESULT_IGNORED = 0;
+    int RESULT_REPLACED = -1;
+    int RESULT_REPLACED_2 = -2;
+
     Collection<Object> readOnlyCopy();
 
-    void attach(T oprtr);
+    int attach(T oprtr);
 
-    void attach(S symb);
+    boolean attach(S symb);
 
-    void detach();
+    boolean detach();
 
     boolean canBuild();
 
