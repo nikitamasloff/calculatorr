@@ -1,5 +1,6 @@
 package com.exmpl.calculatorr.data.bldr;
 
+import com.exmpl.calculatorr.data.excpt.BadExpressionException;
 import com.exmpl.calculatorr.data.model.expr.Expression;
 import com.exmpl.calculatorr.data.model.expr.Notated;
 import com.exmpl.calculatorr.data.model.oprtr.Operator;
@@ -19,5 +20,5 @@ public interface Builder<T extends Operator, S extends Symbol, R extends Express
 
     boolean canBuild();
 
-    R build();
+    R build() throws BadExpressionException;
 }
