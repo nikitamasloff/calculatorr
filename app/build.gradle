@@ -15,6 +15,22 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+    }
+    flavorDimensions 'version'
+    productFlavors {
+        demo {
+            dimension 'version'
+            applicationIdSuffix '.demo'
+            versionCode 1
+            versionName '1.0-demo'
+        }
+        full {
+            dimension 'version'
+        }
     }
 }
 
