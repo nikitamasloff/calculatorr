@@ -1,7 +1,7 @@
 package com.exmpl.calculatorr.data.calc;
 
 import com.exmpl.calculatorr.data.model.Token;
-import com.exmpl.calculatorr.data.model.expr.Expression;
+import com.exmpl.calculatorr.data.model.expr.InfixExpression;
 import com.exmpl.calculatorr.data.model.expr.PostfixExpression;
 import com.exmpl.calculatorr.data.model.oprnd.Operand;
 import com.exmpl.calculatorr.data.model.oprtr.LeftAssociative;
@@ -10,13 +10,13 @@ import com.exmpl.calculatorr.data.model.oprtr.Operator;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public final class ShuntingYardParser implements Parser {
+public final class ShuntingYardParser implements Parser<InfixExpression, PostfixExpression> {
 
     public ShuntingYardParser() {
     }
 
     @Override
-    public Expression parse(Expression expr) {
+    public PostfixExpression parse(InfixExpression expr) {
         final Deque<Operator> ops = new ArrayDeque<>();
         final Deque<Token> out = new ArrayDeque<>();
         for (final Token token : expr) {
