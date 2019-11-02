@@ -27,6 +27,11 @@ public class ExprBuilderrImpl implements ExprBuilderr {
         set(init);
     }
 
+    @VisibleForTesting
+    public StringBuilder getExpr() {
+        return expr;
+    }
+
     @Override
     public void set(String src) {
         expr.setLength(0);
