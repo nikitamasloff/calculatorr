@@ -1,7 +1,5 @@
 package com.exmpl.calculatorr.calc;
 
-import androidx.annotation.VisibleForTesting;
-
 import com.exmpl.calculatorr.excpt.BadExprException;
 import com.exmpl.calculatorr.excpt.TooShortExprException;
 
@@ -25,11 +23,6 @@ public class ExprBuilderrImpl implements ExprBuilderr {
     public ExprBuilderrImpl(String init) {
         this();
         set(init);
-    }
-
-    @VisibleForTesting
-    public StringBuilder getExpr() {
-        return expr;
     }
 
     @Override
