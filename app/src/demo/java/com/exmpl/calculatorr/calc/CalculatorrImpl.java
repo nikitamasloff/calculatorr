@@ -1,5 +1,7 @@
 package com.exmpl.calculatorr.calc;
 
+import androidx.annotation.VisibleForTesting;
+
 import com.exmpl.calculatorr.excpt.NaNException;
 
 import java.util.ArrayDeque;
@@ -33,7 +35,8 @@ public class CalculatorrImpl implements Calculatorr {
         return stck.pop();
     }
 
-    private static String operate(String oprtr, String oprnd1, String oprnd2) throws NaNException {
+    @VisibleForTesting
+    public static String operate(String oprtr, String oprnd1, String oprnd2) throws NaNException {
         if (!isOperator(oprtr)) {
             throw new IllegalArgumentException("Unknown operator");
         }
@@ -66,7 +69,8 @@ public class CalculatorrImpl implements Calculatorr {
         return Double.toString(rslt);
     }
 
-    private static String[] parse(String expr) {
+    @VisibleForTesting
+    public static String[] parse(String expr) {
         if (expr == null || expr.isEmpty()) {
             return new String[0];
         }
@@ -102,7 +106,8 @@ public class CalculatorrImpl implements Calculatorr {
         return out.toArray(new String[0]);
     }
 
-    private static String[] toPostfx(String[] infx) {
+    @VisibleForTesting
+    public static String[] toPostfx(String[] infx) {
         final Deque<String> oprtrs = new ArrayDeque<>();
         final Queue<String> out = new ArrayDeque<>();
         for (final String token : infx) {
